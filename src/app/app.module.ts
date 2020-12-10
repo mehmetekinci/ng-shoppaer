@@ -16,11 +16,16 @@ import { CreateProductComponent } from './dashboard/create-product/create-produc
 import { AuthService } from './services/auth.service';
 import { ProductService } from './services/product.service';
 import { CartService } from './services/cart.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'cart', canActivate: [AuthGuardService], component: CartComponent },
+  {
+    path: 'dashboard',
+    canActivate: [AuthGuardService],
+    component: DashboardComponent,
+  },
 ];
 @NgModule({
   declarations: [
@@ -39,7 +44,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [CartService, ProductService, AuthService],
+  providers: [CartService, ProductService, AuthService, AuthGuardService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -19,8 +19,10 @@ export class AuthService implements OnInit {
     this.isLoggedIn = !this.isLoggedIn;
     this.authChange.next(this.isLoggedIn);
     this.cartService.resetCart();
-    setTimeout(() => {
-      this.router.navigate(['/']);
-    }, 2000);
+    if (this.isLoggedIn === false) {
+      setTimeout(() => {
+        this.router.navigate(['/']);
+      }, 0);
+    }
   }
 }
