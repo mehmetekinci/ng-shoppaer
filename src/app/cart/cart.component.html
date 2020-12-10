@@ -13,6 +13,7 @@
         <tr class="align-middle" *ngFor="let product of cart">
           <td class="align-middle" scope="row">
             <img
+              class="card-img-top"
               style="max-width: 15rem"
               [src]="product.url"
               [alt]="product.name"
@@ -28,7 +29,7 @@
           <td>Total Price</td>
           <td></td>
           <td></td>
-          <td>€{{ totalPrice }}</td>
+          <td>{{ totalPrice }}</td>
         </tr>
       </tfoot>
     </table>
