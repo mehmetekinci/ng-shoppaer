@@ -13,20 +13,30 @@
         <tr class="align-middle" *ngFor="let product of cart">
           <td class="align-middle" scope="row">
             <img
-              style="max-width: 200px"
+              style="max-width: 15rem"
               [src]="product.url"
               [alt]="product.name"
             />
           </td>
           <td class="align-middle">{{ product.name }}</td>
           <td class="align-middle">{{ product.quantity }}</td>
-          <td class="align-middle">{{ product.price }}</td>
+          <td class="align-middle">€{{ product.price }}</td>
         </tr>
       </tbody>
+      <tfoot>
+        <tr>
+          <td>Total Price</td>
+          <td></td>
+          <td></td>
+          <td>€{{ totalPrice }}</td>
+        </tr>
+      </tfoot>
     </table>
     <ng-template #showMessage>
-      <div class="alert alert-danger" role="alert">
-        A simple danger alert—check it out!
+      <div class="alert alert-danger text-center" role="alert">
+        You didn't add any product to cart yet.
+        <br />
+        ***
       </div>
     </ng-template>
   </div>

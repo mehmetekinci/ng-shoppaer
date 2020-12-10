@@ -1,7 +1,7 @@
 <div class="card text-center mb-4 shadow-sm">
   <div style="height: 10rem; vertical-align: middle">
     <img
-      style="max-width: 15em"
+      style="max-width: 15rem"
       class="card-img-top"
       [src]="product.url"
       alt="shoes img"
@@ -9,15 +9,16 @@
   </div>
   <div class="card-body">
     <h5 class="card-title">{{ product.name }}</h5>
-    <p class="card-text">
-      {{ product.price }}
-    </p>
+    <p class="card-text">€ {{ product.price }}</p>
     <button
       [disabled]="!isLoggedIn"
       class="btn btn-primary"
       (click)="onAddToCart(product.id)"
     >
-      Add to Cart
+      <span *ngIf="isLoggedIn; else login">Add to Cart</span>
+      <ng-template #login>
+        <span>Login to add product</span>
+      </ng-template>
     </button>
   </div>
 </div>
