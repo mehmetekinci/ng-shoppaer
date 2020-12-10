@@ -1,0 +1,30 @@
+<div class="col-xs-12 col-md-8 col-md-offset-2">
+  <div class="form-group">
+    <label>Product name</label>
+    <input class="form-control" placeholder="Product name" [(ngModel)]="name" />
+  </div>
+  <div class="form-group">
+    <label>Product price</label>
+    <input
+      class="form-control"
+      placeholder="Product price"
+      [(ngModel)]="price"
+    />
+  </div>
+  <div class="form-group">
+    <label>Product image</label>
+    <input
+      class="form-control"
+      placeholder="Product image url"
+      [(ngModel)]="url"
+    />
+    <img *ngIf="url" [src]="url" alt="product img " />
+  </div>
+  <button
+    class="btn btn-primary"
+    [disabled]="isDisable()"
+    (click)="onCreateProduct()"
+  >
+    Add to Product List
+  </button>
+</div>

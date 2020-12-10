@@ -1,0 +1,23 @@
+<div class="card text-center mb-4 shadow-sm">
+  <div style="height: 10rem; vertical-align: middle">
+    <img
+      style="max-width: 15em"
+      class="card-img-top"
+      [src]="product.url"
+      alt="shoes img"
+    />
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ product.name }}</h5>
+    <p class="card-text">
+      {{ product.price }}
+    </p>
+    <button
+      [disabled]="!isLoggedIn"
+      class="btn btn-primary"
+      (click)="onAddToCart(product.id)"
+    >
+      Add to Cart
+    </button>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<hr />
+<h3>New Sezon</h3>
+<div class="row">
+  <div class="col-md-4" *ngFor="let product of products; let i = index">
+    <app-product-item [product]="product"></app-product-item>
+  </div>
+</div>

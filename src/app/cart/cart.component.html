@@ -1,0 +1,33 @@
+<div class="row" style="margin-top: 50px">
+  <div class="col">
+    <table class="table text-center" *ngIf="cart.length > 0; else showMessage">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Product name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="align-middle" *ngFor="let product of cart">
+          <td class="align-middle" scope="row">
+            <img
+              style="max-width: 200px"
+              [src]="product.url"
+              [alt]="product.name"
+            />
+          </td>
+          <td class="align-middle">{{ product.name }}</td>
+          <td class="align-middle">{{ product.quantity }}</td>
+          <td class="align-middle">{{ product.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #showMessage>
+      <div class="alert alert-danger" role="alert">
+        A simple danger alert—check it out!
+      </div>
+    </ng-template>
+  </div>
+</div>

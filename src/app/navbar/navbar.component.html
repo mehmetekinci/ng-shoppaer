@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/">Shoppær</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto w-100">
+      <li
+        class="nav-item"
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a class="nav-link">Home</a>
+      </li>
+      <li class="nav-item" routerLink="/cart" routerLinkActive="active">
+        <a class="nav-link">Cart</a>
+      </li>
+      <li
+        class="nav-item"
+        routerLink="/dashboard"
+        routerLinkActive="active"
+        *ngIf="isLoggedIn"
+      >
+        <a class="nav-link">Dashboard</a>
+      </li>
+      <li class="nav-item ml-auto" *ngIf="!isLoggedIn">
+        <a class="nav-link" (click)="onToggle()">Login</a>
+      </li>
+      <li class="nav-item ml-auto" *ngIf="isLoggedIn">
+        <a class="nav-link" (click)="onToggle()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
